@@ -1,4 +1,3 @@
-# Bot v3.0.0
 """
     Команды бота:
         /start              - начало работы с ботом
@@ -138,7 +137,7 @@ def mailing():
 
     schedule.every().day.at("08:00").do(sending_weather, time_city="now")
     schedule.every().day.at("14:00").do(sending_weather, time_city="now")
-    schedule.every().day.at("20:21").do(sending_weather, time_city="daily")
+    schedule.every().day.at("20:00").do(sending_weather, time_city="daily")
 
     while True:
         try:

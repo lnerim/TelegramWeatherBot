@@ -6,7 +6,7 @@ from telebot import types
 import config
 from strings import strings
 
-config_dict = get_default_config()        # Конфиг по умолчанию
+config_dict = get_default_config()        # Config pyowm по умолчанию
 config_dict["language"] = "ru"            # Русский язык в pyowm
 owm = OWM(config.TOKEN_OWM, config_dict)  # Токен погоды
 

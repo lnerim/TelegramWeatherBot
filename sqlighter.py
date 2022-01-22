@@ -36,7 +36,3 @@ class SQLighter:
         with self.connection:
             return self.cursor.execute(
                 "UPDATE `sub` SET `status` = ?, `city` = ? WHERE `user_id` = ?", (status, city, user_id))
-
-
-if __name__ == "__main__":
-    s = SQLighter(":memory:")

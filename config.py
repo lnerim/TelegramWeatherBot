@@ -3,14 +3,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Токен бота Telrgram
 TOKEN_TG = os.getenv("TG")
 
+# Токен OWM, поддерживающий погоду на завтра
 TOKEN_OWM = os.getenv("OWM")
 
+# Имя БД, любое
 name_db = "bot.sqlite3"
 
+# Минимум один админ должен быть, чтобы не нарушать некоторые функции бота.
+# Кортеж из числового идентификатора аккаунта админа
 admins = (int(os.getenv("adm0")), int(os.getenv("adm1")))
 
+# Идентификаторы стикеров, можно добавлять/удалять
 bot_stickers = (
     "CAACAgIAAxkBAAINuWBrn9JiVKMTSepQhXyfZkNuxnCcAAJoAwACY4tGDHdH19XAzMD2HgQ",
     "CAACAgIAAxkBAAINu2BroBJml26Ab6TCLzRtzjI17QJ_AAJjAwACY4tGDFHvJYA2j_i8HgQ",

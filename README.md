@@ -1,9 +1,9 @@
 # TelegramWeatherBot
 ____
 ## Описание
-Бот на **python**, с применением библиотеки **TelegramBotAPI** и **PyOWM**, котрый предназначен для поиска погоды.
+Бот на **python**, с применением библиотеки **pyTelegramBotAPI** и **PyOWM**, который предназначен для поиска погоды.
 
-[@WeatherOnRussiaBot](https://t.me/WeatherOnRussiaBot) - чат бота в телеграмм
+[@WeatherOnRussiaBot](https://t.me/WeatherOnRussiaBot) - чат бота в Telegram
 ## Команды
 - Основные команды:
   - **/start**              - начало работы с ботом
