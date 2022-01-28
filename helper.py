@@ -15,43 +15,34 @@ def is_admin(id_adm) -> bool: return id_adm in config.admins
 
 
 def deg_weather(deg) -> str:
-    if (337.5 <= deg < 360) or (0 <= deg < 22.5):
-        return "Сев."
-    elif 22.5 <= deg < 67.5:
-        return "СВ"
-    elif 67.5 <= deg < 112.5:
-        return "Вост."
-    elif 112.5 <= deg < 157.5:
-        return "ЮВ"
-    elif 157.5 <= deg < 202.5:
-        return "Юж."
-    elif 202.5 <= deg < 247.5:
-        return "ЮЗ"
-    elif 247.5 <= deg < 292.5:
-        return "Зап."
-    elif 292.5 <= deg < 337.5:
-        return "СЗ"
+    return {
+        (337.5 <= deg < 360) or (0 <= deg < 22.5): "Сев.",
+        22.5 <= deg < 67.5: "СВ",
+        67.5 <= deg < 112.5: "Вост.",
+        112.5 <= deg < 157.5: "ЮВ",
+        157.5 <= deg < 202.5: "Юж.",
+        202.5 <= deg < 247.5: "ЮЗ",
+        247.5 <= deg < 292.5: "Зап.",
+        292.5 <= deg < 337.5: "СЗ"
+    }[True]
 
 
 def wind_warning(speed) -> str:
-    if speed >= 30:
-        return "\n**Ураган!!!**"
-    elif speed >= 18:
-        return "\n**На улице шторм!**"
-    elif speed >= 10:
-        return "\n**Сильный ветер, будьте аккуратны на улице.**"
-    else:  # Пустота, т.к. она будет отображаться, когда ветра "нет"
-        return ""
+    return {
+        speed >= 30: "\n🌪 Ураган!!!",
+        30 > speed >= 18: "\n💨 На улице шторм!",
+        18 > speed >= 10: "\n🌬 Сильный ветер, будьте аккуратны на улице.",
+        speed < 10: ""  # Отсутствие предупреждения
+    }[True]
 
 
 def get_weather(city, times) -> str:
+    mgr = owm.weather_manager()
     if times == "daily":
-        mgr = owm.weather_manager()
         daily_forecast = mgr.forecast_at_place(city, "daily")
         tomorrow = timestamps.tomorrow(14, 0)
         city_weather = daily_forecast.get_weather_at(tomorrow)
     else:
-        mgr = owm.weather_manager()
         observation = mgr.weather_at_place(city)
         city_weather = observation.weather
 

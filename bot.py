@@ -33,7 +33,7 @@ def start_cmd(message): bot.send_message(message.chat.id, strings["start"], repl
 
 
 @bot.message_handler(commands=["subscribe"])
-def sub_weather(message):
+def subscribe(message):
     bot.send_message(message.chat.id, strings["subscribe"])
     bot.register_next_step_handler(message, reg_weather)
 
